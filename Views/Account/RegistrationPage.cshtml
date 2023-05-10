@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Регистрация</title>
+
+
+	<link rel="stylesheet" href="~/css/css.css">
+</head>
+<body>
+	<form name="RigistrForm">
+		<div class="obertka_karkas">
+			<div class="forma_vkhoda">
+
+				<div class="denotation">
+					Регистрация
+				</div>
+				<div class="format_vkhoda polzovatel">
+					<input type="text" id="Name" class="input"  placeholder="Имя пользователя">
+					<i class="fas fa-user"></i>
+				</div>
+				<div class="format_vkhoda pochta">
+					<input type="text" class="input" id="Phone"  placeholder="Телефон">
+					<i class="fas fa-at"></i>
+				</div>
+				<div class="format_vkhoda polzovatel">
+					<input type="text" class="input" id="Login"  placeholder="Логин"> 
+					<i class="fas fa-user"></i>
+				</div>
+				<div class="format_vkhoda password">
+					<input type="password" class="input" id="Password"  placeholder="Пароль">
+					<i class="fas fa-key"></i>
+				</div>
+				<div class="format_vkhoda password">
+					<h3 id="ErrorBox" style="color:red; font-style:inherit"></h3>
+					<i class="fas fa-user"></i>
+				</div>
+				<div class="takzhe">
+					<a href="#" value="Registration" id="submitBtn" type="submit">Готово!</a>
+				</div>
+
+			</div>
+		</div>
+	</form>
+	<div id="dropDownSelect1"></div>
+	<script src="~/js/Registration.js"></script>
+
+</body>
+
+</html>

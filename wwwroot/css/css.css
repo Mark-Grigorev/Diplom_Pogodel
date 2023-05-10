@@ -1,0 +1,104 @@
+.obertka_karkas{
+width: 100%;
+height: 100vh;
+
+background-size: cover;
+}
+
+.forma_vkhoda {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 394px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  padding: 38px 28px 38px 0;
+  box-shadow: -4px -4px 11px rgb(139 139 139 / 64%), 4px 4px 9px rgb(102 112 122 / 87%);
+}
+
+.forma_vkhoda .denotation{
+font-size: 32px;
+text-transform: uppercase;
+font-weight: bold;
+text-align: center;
+color: #c9c3cd;
+margin-bottom: 35px;
+}
+
+.format_vkhoda{
+margin-bottom: 35px;
+position: relative;
+}
+
+.format_vkhoda .input {
+  width: 100%;
+  padding: 18px;
+  padding-left: 76px;
+  font-size: 19px;
+  text-align: center;
+  border: transparent;
+  color: #ebe5e5;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: rgb(122 117 117 / 55%);
+  outline: none;
+}
+
+.format_vkhoda:after{
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 10px;
+height: 100%;
+background: #bfb7b7;
+}
+
+.format_vkhoda:before{
+content: "";
+position: absolute;
+top: 6px;
+left: 70px;
+width: 2px;
+height: 80%;
+background: #d4cfd9;
+}
+
+.takzhe{
+width: 200px;
+background: rgba(163, 159, 159, 0.55);
+margin: 0 auto;
+text-align: center;
+border-radius: 5px;
+padding: 12px;
+}
+
+.takzhe a{
+color: #fff;
+text-decoration: none;
+text-transform: uppercase;
+font-size: 24px;
+}
+
+.format_vkhoda .fas{
+position: absolute;
+top: 18px;
+left: 35px;
+font-size: 20px;
+color: #fff;
+}
+
+::-webkit-input-placeholder {
+/* Chrome/Opera/Safari */
+color: #fff;
+}
+::-moz-placeholder {
+/* Firefox 19+ */
+color: #fff;
+}
+:-ms-input-placeholder {
+/* IE 10+ */
+color: #fff;
+}

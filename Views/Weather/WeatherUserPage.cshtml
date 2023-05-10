@@ -1,0 +1,121 @@
+﻿@model Diplom_Pogodel.Models.WeatherViewModel
+
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Информация о погоде, Функционал, Уведомления">
+    <meta name="description" content="">
+    <title>Information_weather</title>
+    <link rel="stylesheet" href="~/css/information_weather_style2.css" media="screen">
+    <link rel="stylesheet" href="~/css/Information_weather.css" media="screen">
+   <script src="/js/GetBack.js"></script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Information_weather">
+    <meta property="og:type" content="website">
+    <meta data-intl-tel-input-cdn-path="intlTelInput/">
+</head>
+<body class="u-body u-xl-mode" data-lang="ru">
+    <section class="u-clearfix u-grey-75 u-section-1" id="sec-1008">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <h1 class="u-text u-text-default u-text-1">Информация о погоде</h1>
+            <div class="u-clearfix u-expanded-width u-gutter-12 u-layout-wrap u-layout-wrap-1">
+                <div class="u-layout">
+                    <div class="u-layout-col">
+                        <div class="u-size-30">
+                            <div class="u-layout-row">
+                                <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                                    <div class="u-container-layout u-container-layout-1">
+                                        <div class="u-clearfix u-custom-html u-custom-html-1">
+                                            <div id="weatherData">
+                                                <form id="information_form">
+                                                    <h3>
+                                                        Дата: <span>@Model.Data</span>
+                                                    </h3>
+                                                    <h3>
+                                                        Город: <span id="cityName">@Model.CityName</span>
+                                                    </h3>
+                                                    <h3>
+                                                        Температура: <span>@Model.Temperature</span>
+                                                    </h3>
+                                                    <h3>
+                                                        Примечание: <span>@Model.WeatherText</span>
+                                                    </h3>
+                                                </form>
+                                            </div>
+                                            <form id="notification_form" border="1">
+                                                <h2>
+                                                    <p></p>
+                                                    <center>Уведомления</center>
+                                                    <p></p>
+                                                </h2>
+                                                <h3>
+                                                    <output id="notification_out"></output>
+                                                </h3>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                                    <div class="u-container-layout u-container-layout-2">
+                                        <img class="u-image u-image-circle u-image-contain u-image-1" src="~/images/Logo_ne_txt.png" data-image-width="1769" data-image-height="1770">
+                                        <h2 class="u-text u-text-default u-text-2">Функционал</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="u-size-30">
+                            <div class="u-layout-row">
+                                <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-3">
+                                    <div class="u-container-layout u-container-layout-3">
+                                        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-2"></div>
+                                        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-3">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="u-container-style u-hover-feature u-layout-cell u-shape-rectangle u-size-30 u-layout-cell-4">
+                                    <div class="u-container-layout u-container-layout-4">
+                                        <a href="#" id="goBackButton" class="u-border-2 u-border-hover-white u-border-palette-4-dark-1 u-btn u-btn-round u-button-style u-hover-feature u-none u-radius-38 u-text-body-alt-color u-text-hover-palette-4-dark-1 u-btn-1">Запрос</a>
+                                        <a href="#" id="updateButton" class="u-border-2 u-border-hover-white u-border-palette-4-dark-1 u-btn u-btn-round u-button-style u-hover-feature u-none u-radius-38 u-text-body-alt-color u-text-hover-palette-4-dark-1 u-btn-2">Обновить</a>
+                                        <a href="#" id="Wardrobe" class="u-border-2 u-border-hover-white u-border-palette-4-dark-1 u-btn u-btn-round u-button-style u-hover-feature u-none u-radius-38 u-text-body-alt-color u-text-hover-palette-4-dark-1 u-btn-3">Гардероб</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <script>
+        $(document).ready(function () {
+    // Функция для обновления данных на сервере
+         function updateData(cityName) {
+            $.ajax({
+             url: "/Weather/GetWeather", 
+             type: "GET", // Или "GET", в зависимости от метода вашего действия
+               data: { cityName: cityName },
+             success: function (response) {
+    // Обработка успешного ответа от сервера
+                         var redirectUrl = "/Weather/WeatherUserPage?data=" + encodeURIComponent(JSON.stringify(response));
+                        window.location.href = redirectUrl;
+    },
+    error: function (error) {
+    // Обработка ошибки
+    console.log("Произошла ошибка при обновлении данных");
+    }
+    });
+    }
+
+    // Обработчик события нажатия кнопки "Обновить данные"
+    $("#updateButton").click(function () {
+    var cityName = $("#cityName").text(); // Получение значения города из из <span> элемента по его ID
+        updateData(cityName); // Вызов функции для обновления данных на сервере
+        });
+        });
+    </script>
+</body>
+</html>
