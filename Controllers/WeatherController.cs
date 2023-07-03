@@ -74,13 +74,13 @@ namespace Diplom_Pogodel.Controllers
         {
 			try
 			{
-                //alex1302 password qwerty123
+                
                 string apiKey = "bzRjvzfObdPrnZaeFpVWgPjmDmVtfzGT";
-				//relax130102 login ola22 password standart
+				
 				//string apiKey = "yBFBtyUgept17HhxagPPhLvIxHfbX879";
-				//grigorevmark
+				
 				//string apiKey = "BrZTvf2HTNBXvQ9MGsUjdTe42DFx7dId";
-				//markgrigorev02
+				
 				//string apiKey = "8xCYbx31vzStcHLGY0WQqbacjPgkv8wm";
 				string url = $"http://dataservice.accuweather.com/locations/v1/cities/search?apikey={apiKey}&q={cityName}";
 
@@ -139,13 +139,13 @@ namespace Diplom_Pogodel.Controllers
         //Метод для получения данных, по геопозиции пользователя
         public async Task<ActionResult<WeatherViewModel>> GetWeatherByGeolocation(double latitude, double longitude)
         {
-            //alex1302 password qwerty123
+            
             string apiKey = "bzRjvzfObdPrnZaeFpVWgPjmDmVtfzGT";
-            //relax130102 login ola22 password standart
+          
             //string apiKey = "yBFBtyUgept17HhxagPPhLvIxHfbX879";
-            //grigorevmark
+           
             //string apiKey = "BrZTvf2HTNBXvQ9MGsUjdTe42DFx7dId";
-            //markgrigorev02
+            
             //string apiKey = "8xCYbx31vzStcHLGY0WQqbacjPgkv8wm";
             string url = $"http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey={apiKey}&q={latitude},{longitude}";
 
